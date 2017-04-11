@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170322204012) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "budgets", force: :cascade do |t|
     t.string   "requested_service"
     t.string   "hirer_id"
@@ -67,8 +70,8 @@ ActiveRecord::Schema.define(version: 20170322204012) do
     t.string   "address"
     t.string   "name"
     t.integer  "number_of_transactions"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
