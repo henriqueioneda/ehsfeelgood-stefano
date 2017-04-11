@@ -1,0 +1,44 @@
+
+<h1>Meus Orçamentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serviço Requisitado</th>
+      <th>Contratante</th>
+      <th>Nome do Contratante</th>
+      <th>Fornecedor</th>
+      <th>Nome do Fornecedor</th>
+      <th>Status do Orçamento</th>
+      <th>Preço por Dia</th>
+      <th>Dias de Serviço</th>
+      <th>Informações Adicionais</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @budgets.each do |budget| %>
+        <tr>
+          <% if budget.supplier_id == current_user.id.to_s || budget.hirer_id == current_user.id.to_s%>
+            <td><%= budget.requested_service %></td>
+            <td><%= budget.hirer_id %></td>
+            <td><%= budget.hirer_name %></td>
+            <td><%= budget.supplier_id %></td>
+            <td><%= budget.supplier_name %></td>
+            <td><%= budget.budget_status %></td>
+            <td><%= budget.budget_price %></td>
+            <td><%= budget.days_of_service %></td>
+            <td><%= budget.aditional_information %></td>
+            <td><%= link_to 'Mostrar', budget %></td>
+            <td><%= link_to 'Editar', edit_budget_path(budget) %></td>
+            <td><%= link_to 'Recusar', budget, method: :delete, data: { confirm: 'Tem certeza disso?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Voltar', services_path %>

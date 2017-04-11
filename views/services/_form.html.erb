@@ -1,0 +1,46 @@
+<%= form_for(service) do |f| %>
+  <% if service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+      <% service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field">
+      <%= f.label :tipo_de_serviço %>
+      <%= f.text_field :service_type %>
+    </div>
+
+    <div class="field">
+      <%= f.label :status_do_serviço %>
+      <%= f.text_field :service_status, :value => "Aguardando contratação", :readonly => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :id_fornecedor %>
+      <%= f.text_field :supplier_id, :value => current_user.id, :readonly => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :nome_fornecedor %>
+      <%= f.text_field :supplier_name, :value => current_user.name, :readonly => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :preço_diário %>
+      <%= f.text_field :service_price %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :informações_adicionais %>
+      <%= f.text_field :aditional_information %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

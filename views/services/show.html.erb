@@ -1,0 +1,33 @@
+
+<p>
+  <strong>Tipo de Serviço:</strong>
+  <%= @service.service_type %>
+</p>
+
+<p>
+  <strong>Fornecedor:</strong>
+  <%= @service.supplier_id %>
+</p>
+
+<p>
+  <strong>Nome do Fornecedor:</strong>
+  <%= @service.supplier_name %>
+</p>
+
+<p>
+  <strong>Status do Serviço:</strong>
+  <%= @service.service_status %>
+</p>
+
+<p>
+  <strong>Service price:</strong>
+  <%= @service.service_price %>
+</p>
+
+<p>
+  <strong>Informações Adicionais:</strong>
+  <%= @service.aditional_information %>
+</p>
+
+<%= link_to 'Editar', edit_service_path(@service) %> |
+<%= link_to 'Voltar', services_path %>

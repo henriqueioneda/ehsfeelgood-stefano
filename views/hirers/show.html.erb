@@ -1,0 +1,13 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @hirer.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @hirer.address %>
+</p>
+
+<%= link_to 'Edit', edit_hirer_path(@hirer) %> |
+<%= link_to 'Back', hirers_path %>

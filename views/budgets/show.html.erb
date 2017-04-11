@@ -1,0 +1,48 @@
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @budget.requested_service %>
+</p>
+
+<p>
+  <strong>Contratante:</strong>
+  <%= @budget.hirer_id %>
+</p>
+
+<p>
+  <strong>Nome do Contratante:</strong>
+  <%= @budget.hirer_name %>
+</p>
+
+<p>
+  <strong>Fornecedor:</strong>
+  <%= @budget.supplier_id %>
+</p>
+
+<p>
+  <strong>Nome do Fornecedor:</strong>
+  <%= @budget.supplier_name %>
+</p>
+
+<p>
+  <strong>Status do Orçamento:</strong>
+  <%= @budget.budget_status %>
+</p>
+
+<p>
+  <strong>Preço por Dia:</strong>
+  <%= @budget.budget_price %>
+</p>
+
+<p>
+  <strong>Dias de Serviço:</strong>
+  <%= @budget.days_of_service %>
+</p>
+
+<p>
+  <strong>Informações Adicionais:</strong>
+  <%= @budget.aditional_information %>
+</p>
+
+<%= link_to 'Editar', edit_budget_path(@budget) %> |
+<%= link_to 'Voltar', budgets_path %>

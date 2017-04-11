@@ -1,0 +1,28 @@
+
+<h1>Hirers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hirers.each do |hirer| %>
+      <tr>
+        <td><%= hirer.name %></td>
+        <td><%= hirer.address %></td>
+        <td><%= link_to 'Show', hirer %></td>
+        <td><%= link_to 'Edit', edit_hirer_path(hirer) %></td>
+        <td><%= link_to 'Destroy', hirer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hirer', new_hirer_path %>

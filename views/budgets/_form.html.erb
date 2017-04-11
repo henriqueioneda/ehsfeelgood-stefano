@@ -1,0 +1,64 @@
+<%= form_for(budget) do |f| %>
+  <% if budget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+
+      <ul>
+      <% budget.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :serviço_requisitado %>
+    <%= f.text_field :requested_service, :value => params['requested_service'], :readonly => true %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :id_do_contratante %>
+    <%= f.text_field :hirer_id, :value => current_user.id, :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nome_do_contratante %>
+    <%= f.text_field :hirer_name, :value => current_user.name, :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id_do_fornecedor %>
+    <%= f.text_field :supplier_id, :value => params['supplier_id'], :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nome_do_fornecedor %>
+    <%= f.text_field :supplier_name, :value => params['supplier_name'], :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status_do_orçamento %>
+    <%= f.text_field :budget_status, :value => 'Aguardando fornecedor', :readonly => params['supplier_id'] == current_user.id ? false : true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preço_por_dia %>
+    <%= f.text_field :budget_price, :value => params['budget_price'], :readonly => params['supplier_id'] == current_user.id ? false : true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dias_de_serviço %>
+    <%= f.text_field :days_of_service, :value => params['days_of_service'], :readonly => params['supplier_id'] == current_user.id ? false : true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :informações_adicionais %>
+    <%= f.text_field :aditional_information %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
